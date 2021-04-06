@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.NDCDetailPage" 
+    xmlns:vm="clr-namespace:App1.ViewModels"
+             Title="{Binding Title}">
+    
+    <ContentPage.Content >
+        <StackLayout Padding="0,30,30,0" VerticalOptions="Start">
+            <Button Text="Verify"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Clicked="BtnVerify_Click" />
+            <Label Text="This is Label" x:Name="lblSerial" TextType="Html"  Margin="15, 10" />
+
+
+            <Label Text="This is Label2" x:Name="lblExpiry" TextType="Html" Margin="15, 10"/>
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
+ 
