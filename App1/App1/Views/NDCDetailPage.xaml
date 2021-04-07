@@ -7,16 +7,50 @@
     
     <ContentPage.Content >
         <StackLayout Padding="0,30,30,0" VerticalOptions="Start">
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Path=NDC.generic_name, StringFormat='{0}'}"   FontSize="Large" FontAttributes="Bold" Margin="15, 10"/>
+                    <Label Text="{Binding Path=NDC.dosage_form, StringFormat='{0}'}"    FontSize="Medium"   Margin="0, 14"/>
+                </StackLayout>
+            </StackLayout>
+            
             <Button Text="Verify"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"
                 Clicked="BtnVerify_Click" />
-            <Label Text="This is Label" x:Name="lblSerial" TextType="Html"  Margin="15, 10" />
-
-
-            <Label Text="This is Label2" x:Name="lblExpiry" TextType="Html" Margin="15, 10"/>
             
+         
+            <StackLayout Orientation="Vertical"  Margin="15, 10">
+                <Label Text="Expiration Date"   FontAttributes="Bold"   />
+                <Label Text="{Binding Path=NDC.listing_expiration_date, StringFormat='{0}'}"   />
+            </StackLayout> 
+
+            <StackLayout Orientation="Vertical"  Margin="15, 10">
+                <Label Text="Nonpropriety Name"   FontAttributes="Bold"   />
+                <Label  Text="{Binding Path=NDC.generic_name, StringFormat='{0}'}"   />
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical"  Margin="15, 10">
+                <Label Text="Strength, Form, Route"   FontAttributes="Bold"   />
+                <Label  Text="{Binding strengthFormRoute, StringFormat='{0}'}" />
+            </StackLayout>
             
+            <StackLayout Orientation="Vertical"  Margin="15, 10">
+                <Label Text="Package Description"   FontAttributes="Bold"   />
+                <Label Text="{Binding packageDesc, StringFormat='{0}'}" />
+
+            </StackLayout>
+            
+            <StackLayout Orientation="Vertical"  Margin="15, 10">
+                <Label Text="Packager"   FontAttributes="Bold"   />
+                <Label  Text="{Binding manufacturer_name, StringFormat='{0}'}"   />
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical"  Margin="15, 10">
+                <Label Text="Package NDC"   FontAttributes="Bold"   />
+                <Label Text="{Binding Path=NDC.product_ndc, StringFormat='{0}'}"   />
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

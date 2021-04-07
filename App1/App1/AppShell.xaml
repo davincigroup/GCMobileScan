@@ -32,7 +32,7 @@
     <TabBar>
         <ShellContent Title="Verify" Icon="search_icon.png" Route="VRSVerifyPage" ContentTemplate="{DataTemplate local:VRSVerifyPage}" />
         <ShellContent Title="Scan" Icon="QR_Code_icon.png" ContentTemplate="{DataTemplate local:ScanPage}" />
-        <ShellContent Title="Library" Icon="list_bullet_icon.png" ContentTemplate="{DataTemplate local:NDCDetailPage}" />
+        <ShellContent Title="Lookup" Icon="list_bullet_icon.png" ContentTemplate="{DataTemplate local:NDCDetailPage}" />
     </TabBar>
 
     <!--

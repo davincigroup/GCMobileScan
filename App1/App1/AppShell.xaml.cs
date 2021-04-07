@@ -12,7 +12,7 @@ namespace App1
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(ScanPage), typeof(ScanPage));
-            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            Routing.RegisterRoute(nameof(NDCDetailPage), typeof(NDCDetailPage));
         }
 
     }

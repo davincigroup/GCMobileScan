@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using App1.ViewModels;
 
 namespace App1.Views
 {
@@ -15,10 +16,12 @@ namespace App1.Views
         public NDCDetailPage()
         {
             InitializeComponent();
+            
+            BindingContext = new NDCDetailViewModel();
 
-            lblExpiry.Text = "<strong>Expiration Date</strong><br/>02/28";
+           // lblExpiry.Text = "<strong>Expiration Date</strong><br/>02/28";
 
-            lblSerial.Text = "<strong>Serial Number</strong><br/>085499874";
+           // lblSerial.Text = "<strong>Serial Number</strong><br/>085499874";
         }
 
          void BtnVerify_Click(object sender, EventArgs e)
