@@ -14,7 +14,18 @@ namespace App1
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            var isLogged = Xamarin.Essentials.SecureStorage.GetAsync("isLogged").Result;
+            isLogged = "0";
+            if (isLogged == "1")
+            {
+                MainPage = new AppShell();
+            }
+            else
+            {
+                MainPage = new LoginPage();
+            }
+
+            
         }
 
         protected override void OnStart()

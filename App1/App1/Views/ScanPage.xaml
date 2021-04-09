@@ -18,8 +18,26 @@
     <StackLayout>
         <Entry Placeholder="" x:Name="txtValue" />
 
-        <Button Text="Return"  Clicked="OnButtonClicked"  />
+        <Picker Title="Select a barcode"
+        TitleColor="Red">
+            <Picker.Items>
+                <x:String>GTIN</x:String>
+                <x:String>NDC</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Image Source="gs1datamatrix"
+       HorizontalOptions="Center" />
+      
+        <Button Text="Go GTIN"  Clicked="OnButtonClickedGTIN"      
+                HorizontalOptions="Center"  Margin="0,30" />
+
+        <Button Text="Go NDC"  Clicked="OnButtonClickedNDC"       
+                HorizontalOptions="Center"   Margin="0,30"/>
+
+
     </StackLayout>
+    
   
 
 </ContentPage>

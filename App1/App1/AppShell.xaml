@@ -30,9 +30,9 @@
     </Shell.Resources>
 
     <TabBar>
-        <ShellContent Title="Verify" Icon="search_icon.png" Route="VRSVerifyPage" ContentTemplate="{DataTemplate local:VRSVerifyPage}" />
+        <ShellContent Title="VRS Verify" Icon="search_icon.png" Route="VRSVerifyPage" ContentTemplate="{DataTemplate local:VRSVerifyPage}" />
         <ShellContent Title="Scan" Icon="QR_Code_icon.png" ContentTemplate="{DataTemplate local:ScanPage}" />
-        <ShellContent Title="Lookup" Icon="list_bullet_icon.png" ContentTemplate="{DataTemplate local:NDCDetailPage}" />
+        <ShellContent Title="NDC Lookup" Icon="list_bullet_icon.png" ContentTemplate="{DataTemplate local:NDCDetailPage}" />
     </TabBar>
 
     <!--
@@ -42,6 +42,9 @@
     <TabBar>
         <ShellContent Route="VRSVerifyPage" ContentTemplate="{DataTemplate local:VRSVerifyPage}" />
     </TabBar>
+    <ShellItem Route="login">
+        <ShellContent ContentTemplate="{DataTemplate local:LoginPage}" />
+    </ShellItem>
 
 
 </Shell>

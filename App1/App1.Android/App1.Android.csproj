@@ -118,6 +118,9 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\gs1us_ccts.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\gs1datamatrix.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

@@ -17,5 +17,14 @@ namespace App1.Views
             InitializeComponent();
             this.BindingContext = new LoginViewModel();
         }
+        protected async void OnClicked(object source, EventArgs args)
+        {
+            await Xamarin.Essentials.SecureStorage.SetAsync("isLogged", "1");
+            Application.Current.MainPage = new AppShell();
+            await Shell.Current.GoToAsync($"{nameof(ScanPage)}");
+
+
+        }
     }
+
 }

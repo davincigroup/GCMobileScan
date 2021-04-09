@@ -5,21 +5,33 @@
              xmlns:vm="clr-namespace:App1.ViewModels"
              Title="{Binding Title}">
 
-    <ContentPage.BindingContext>
-        <vm:VRSVerifyViewModel />
-    </ContentPage.BindingContext>
+    
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="Accent">#96d1ff</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="VRS Verify" FontSize="20" FontAttributes="Bold"
+                 HorizontalOptions="CenterAndExpand" />
 
-    <StackLayout>
-        <Entry Placeholder="" x:Name="txtValue" />
-  
+            <Label  Text="GTIN"  />
+            <Entry Placeholder="" x:Name="txtGTIN" />
+            <Label Text="Lot"  />
+            <Entry Placeholder="" x:Name="txtLot" />
+            <Label  Text="Serial"  />
+            <Entry Placeholder="" x:Name="txtSerial" />
+            <Label Text="Expiry Date"  />
+            <Entry Placeholder="" x:Name="txtExpiry" />
 
-    </StackLayout>
-  
+            <Button Text="Verify" Clicked="OnVerifyButtonClicked" BackgroundColor="Blue"/>
 
+            <Label Text="VRS Response" x:Name="lblVRSHeader" FontSize="20" FontAttributes="Bold"
+                 HorizontalOptions="CenterAndExpand"   />
+            <Label x:Name="myReturnCode" Text="" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand"/>
+            <Label x:Name="myLabel1" Text="" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand"/>
+            <Label x:Name="myLabel2" Text="" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="myLabel3" Text="" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand"/>
+            <Label x:Name="myLabel4" Text="" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand"/>
+
+        </StackLayout>
+
+    </ContentPage.Content>
 </ContentPage>

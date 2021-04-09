@@ -4,6 +4,8 @@ using System.Text;
 
 namespace App1.Models
 {
+     
+
     public class ActiveIngredient
     {
         public string name { get; set; }

@@ -7,6 +7,7 @@ using Xamarin.Forms;
 
 namespace App1.ViewModels
 {
+    
     public class VRSVerifyViewModel : ContentView
     {
         public VRSVerifyViewModel()
