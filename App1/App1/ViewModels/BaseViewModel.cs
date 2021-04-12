@@ -67,10 +67,53 @@ namespace App1.ViewModels
         public Openfda FDA
         {
             get { return _FDA; }
-            set { SetProperty(ref _FDA, value);
-}
+            set { SetProperty(ref _FDA, value); }
         }
-        
+
+
+        // verify
+        VRSRequest _VRSRequest = new VRSRequest();
+        public VRSRequest VRSRequest
+        {
+            get { return _VRSRequest; }
+            set { SetProperty(ref _VRSRequest, value); }
+        }
+
+
+        VRSResponse _VRSResponse  = new VRSResponse();
+        public VRSResponse VRSResponse
+        {
+            get { return _VRSResponse; }
+            set { SetProperty(ref _VRSResponse, value); }
+        }
+
+        string _GTIN = string.Empty;
+        public string GTIN
+        {
+            get { return _GTIN; }
+            set { SetProperty(ref _GTIN, value); }
+        }
+
+        string _lot = string.Empty;
+        public string lot
+        {
+            get { return _lot; }
+            set { SetProperty(ref _lot, value); }
+        }
+
+        string _ser = string.Empty;
+        public string ser
+        {
+            get { return _ser; }
+            set { SetProperty(ref _ser, value); }
+        }
+
+        string _exp = string.Empty;
+        public string exp
+        {
+            get { return _exp; }
+            set { SetProperty(ref _exp, value); }
+        }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName] string propertyName = "",

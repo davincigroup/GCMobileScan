@@ -18,5 +18,14 @@ namespace App1
         public string verificationTimestamp { get; set; }
         public Data data { get; set; }
     }
+    public class VRSRequest
+    {
+        public string GTIN { get; set; }
+        public string ser { get; set; }
+        public string expiry { get; set; }
+        public string lot { get; set; }
+    }
+
+
 
 }

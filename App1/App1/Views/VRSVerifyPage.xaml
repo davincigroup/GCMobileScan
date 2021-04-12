@@ -4,34 +4,53 @@
              x:Class="App1.Views.VRSVerifyPage"
              xmlns:vm="clr-namespace:App1.ViewModels"
              Title="{Binding Title}">
+ 
 
-    
+    <ContentPage.Content >
+        <StackLayout Padding="0,0,0,0" VerticalOptions="Start">
 
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="VRS Verify" FontSize="20" FontAttributes="Bold"
+            <StackLayout>
+                <Label Text="VRS Verify" FontSize="20" FontAttributes="Bold"
                  HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label  Text="GTIN"  Grid.Row="0" Grid.Column="0" Margin="5, 0"  HorizontalTextAlignment="End" />
+                <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Path=VRSRequest.GTIN, StringFormat='{0}'}"    FontSize="Medium"       />
 
-            <Label  Text="GTIN"  />
-            <Entry Placeholder="" x:Name="txtGTIN" />
-            <Label Text="Lot"  />
-            <Entry Placeholder="" x:Name="txtLot" />
-            <Label  Text="Serial"  />
-            <Entry Placeholder="" x:Name="txtSerial" />
-            <Label Text="Expiry Date"  />
-            <Entry Placeholder="" x:Name="txtExpiry" />
+                <Label Grid.Row="1" Grid.Column="0"  Text="Lot"  Margin="5, 0"  HorizontalTextAlignment="End"  />
+                <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Path=VRSRequest.lot, StringFormat='{0}'}"    FontSize="Medium"    x:Name="txtLot" />
 
-            <Button Text="Verify" Clicked="OnVerifyButtonClicked" BackgroundColor="Blue"/>
+                <Label  Text="Serial"  Grid.Row="2" Grid.Column="0" Margin="5, 0"  HorizontalTextAlignment="End"   />
+                <Entry  Grid.Row="2" Grid.Column="1" Text="{Binding Path=VRSRequest.ser, StringFormat='{0}'}"    FontSize="Medium"     x:Name="txtSerial" />
 
-            <Label Text="VRS Response" x:Name="lblVRSHeader" FontSize="20" FontAttributes="Bold"
+                <Label  Grid.Row="3" Grid.Column="0"  Text="Expiry Date"  Margin="5, 0"  HorizontalTextAlignment="End" />
+                <Entry Grid.Row="3" Grid.Column="1" Text="{Binding Path=VRSRequest.expiry, StringFormat='{0}'}"    FontSize="Medium"     x:Name="txtExpiry" />
+
+            
+            </Grid>
+ 
+
+            <StackLayout>
+                <Button Text="Verify" Clicked="OnVerifyButtonClicked" BackgroundColor="Blue"/>
+
+                <Label Text="VRS Response" x:Name="lblVRSHeader" FontSize="20" FontAttributes="Bold"
                  HorizontalOptions="CenterAndExpand"   />
-            <Label x:Name="myReturnCode" Text="" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand"/>
-            <Label x:Name="myLabel1" Text="" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand"/>
-            <Label x:Name="myLabel2" Text="" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" />
-            <Label x:Name="myLabel3" Text="" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand"/>
-            <Label x:Name="myLabel4" Text="" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand"/>
+                <Label x:Name="myReturnCode" Text="{Binding Path=VRSResponse.StatusCode, StringFormat='HTTP: {0}'}"    FontSize="Medium"   Margin="0, 0"  FontAttributes="Bold"  HorizontalOptions="CenterAndExpand"/>
+                <Label x:Name="myLabel1" Text= "{Binding Path=VRSResponse.responderGLN, StringFormat='Responder GLN: {0}'}"    FontSize="Medium"   Margin="0, 0" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand"/>
+                <Label x:Name="myLabel2" Text="{Binding Path=VRSResponse.data.verified, StringFormat='Verified: {0}'}"    FontSize="Medium"   Margin="0, 0"  FontAttributes="Bold" HorizontalOptions="CenterAndExpand" />
+                <Label x:Name="myLabel3" Text="{Binding Path=VRSResponse.data.verificationFailureReason, StringFormat='{0}'} "    FontSize="Medium"   Margin="0, 0" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand"/>
+                <Label x:Name="myLabel4" Text="{Binding Path=VRSResponse.data.verificationTimestamp, StringFormat='{0}'}" FontSize="Medium"   Margin="0,0" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand"/>
+
+            </StackLayout>
 
         </StackLayout>
-
     </ContentPage.Content>
 </ContentPage>

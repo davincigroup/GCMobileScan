@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using App1.ViewModels;
+using Newtonsoft.Json;
+using System.Net.Http;
+
+using App1.Models;
+
 
 namespace App1.Views
 {
@@ -15,6 +20,7 @@ namespace App1.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NDCDetailPage : ContentPage
     {
+    
         private string _NDC;
         public string NDC
         {
@@ -40,5 +46,6 @@ namespace App1.Views
             string  x  = "";
         }
 
+       
     }
 }

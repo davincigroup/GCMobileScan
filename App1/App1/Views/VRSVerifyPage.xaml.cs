@@ -10,116 +10,87 @@ using System.Collections.ObjectModel;
 using Xamarin.Forms.Xaml;
 using App1;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
-
+using App1.ViewModels;
 
 namespace App1.Views
 {
+    [QueryProperty("NDC", "ndc")]
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VRSVerifyPage : ContentPage
     {
 
-        //private string url = "https://mobile.gatewaychecker.com/api/verify/gtin/00860003873595/lot/L210326/ser/AB210010?exp=210131&linkType=verificationService&context=dscsaSaleableReturn?Expiry=210131";
-        private string url = "https://mobile.gatewaychecker.com/api/verify";
-        private HttpClient _Client = new HttpClient();
+       
 
-        private const string context = "dscsaSaleableReturn";
-        private const string linkType = "verificationService";
-        private string GTIN;
-        private string lot;
-        private string ser;
-        private string exp;
+        private string _barCodeString;
+        public string barCodeString
+        {
+            get => _barCodeString;
+            set => _barCodeString = Uri.UnescapeDataString(value);
+        }
 
-
-        public VRSVerifyPage()
+        public VRSVerifyPage(VRSRequest v)
         {
             InitializeComponent();
+            
+            BindingContext = new VRSVerifyViewModel(v);
+
+
         }
         protected override void OnAppearing()
         {
 
-            // load defaults
-            GTIN = "00860003873595";
-            lot = "L210326";
-            ser = "AB210010";
-            exp = "210131";
-
-            myLabel1.IsVisible = false;
-            myLabel2.IsVisible = false;
-            myReturnCode.IsVisible = false;
-            lblVRSHeader.IsVisible = false;
-
-            // show current 
-            DisplayComponents();
-
-            base.OnAppearing();
+            // TODO need struct and pass it
+            //scanlib sl = new scanlib();
+            //if (sl.ConvertDataMatrix(barCodeString, ref GTIN, ref exp, ref ser, ref lot, ref ErrMsg))
+            //{
+            //    // already passed
+            //}
+           
+            //base.OnAppearing();
         }
 
         void OnVerifyButtonClicked(object sender, EventArgs args)
     {
         VerifyComponents();
     }
-        void DisplayComponents()
-        {
-            // load UI
-            txtGTIN.Text = GTIN;
-            txtLot.Text = lot;
-            txtSerial.Text = ser;
-            txtExpiry.Text = exp;
-
-        }
+    
         async void VerifyComponents()
     {
-        GTIN = txtGTIN.Text;
-        lot = txtLot.Text;
-        ser = txtSerial.Text;
-        exp = txtExpiry.Text;
+        //GTIN = txtGTIN.Text;
+        //lot = txtLot.Text;
+        //ser = txtSerial.Text;
+        //exp = txtExpiry.Text;
 
-        string req = url;
-        req += "/gtin/" + GTIN;
-        req += "/lot/" + lot;
-        req += "/ser/" + ser;
-        req += "?exp=" + exp;
-        req += "&linkType=" + linkType;
-        req += "&context=" + context;
+        //string req = url;
+        //req += "/gtin/" + GTIN;
+        //req += "/lot/" + lot;
+        //req += "/ser/" + ser;
+        //req += "?exp=" + exp;
+        //req += "&linkType=" + linkType;
+        //req += "&context=" + context;
 
         //var content = await _Client.GetStringAsync(url);
-        var VRSReq = await _Client.GetAsync(req);
+        //var VRSReq = await _Client.GetAsync(req);
 
-        var content = await VRSReq.Content.ReadAsStringAsync();
+        //var content = await VRSReq.Content.ReadAsStringAsync();
 
-        string x = req;
-
-
-        string s = content.ToString();
+        //string x = req;
 
 
-        var VRSlookup = JsonConvert.DeserializeObject<VRSResponse>(s);
-        //_post = new ObservableCollection<VRSResponse>(VRSlookup);
+        //string s = content.ToString();
 
-        lblVRSHeader.IsVisible = true;
-        myLabel1.IsVisible = true;
-        myLabel2.IsVisible = true;
-        myReturnCode.IsVisible = true;
 
-        
-            myReturnCode.Text = "HTTP : " + VRSReq.StatusCode.ToString();
-            myLabel1.Text = VRSlookup.responderGLN;
-            myLabel2.Text = "Verified: " + VRSlookup.data.verified.ToString();
+        //var VRSlookup = JsonConvert.DeserializeObject<VRSResponse>(s);
+        ////_post = new ObservableCollection<VRSResponse>(VRSlookup);
 
-            if (VRSlookup.data.verified)
-            {
-                myLabel3.IsVisible = false;
-            }
-            else
-            {
-                myLabel3.IsVisible = true;
-                myLabel3.Text = VRSlookup.data.verificationFailureReason + "-" + VRSlookup.data.additionalInfo;
+        //lblVRSHeader.IsVisible = true;
+        //myLabel1.IsVisible = true;
+        //myLabel2.IsVisible = true;
+        //myReturnCode.IsVisible = true;
 
-            }
+         
 
-            ;
-            myLabel4.Text = VRSlookup.verificationTimestamp;
-
+            
         }
     }
 }

@@ -29,7 +29,7 @@
             </StackLayout>
 
             <StackLayout Orientation="Vertical"  Margin="15, 0" Spacing="0">
-                <Label Text="Nonpropriety Name"   FontAttributes="Bold"    FontSize="Medium"  />
+                <Label Text="Non Proprietary Name"   FontAttributes="Bold"    FontSize="Medium"  />
                 <Label  Text="{Binding Path=NDC.generic_name, StringFormat='{0}'}"   FontSize="Medium"   />
             </StackLayout>
 

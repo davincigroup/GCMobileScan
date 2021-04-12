@@ -18,24 +18,26 @@
     <StackLayout>
         <Entry Placeholder="" x:Name="txtValue" />
 
-        <Picker Title="Select a barcode"
+        <Picker Title="Select a barcode"  x:Name="pickScanType"
         TitleColor="Red">
             <Picker.Items>
-                <x:String>GTIN</x:String>
                 <x:String>NDC</x:String>
+                <x:String>GTIN</x:String>
             </Picker.Items>
+            <Picker.SelectedIndex>0</Picker.SelectedIndex>
         </Picker>
+ 
+ 
 
-        <Image Source="gs1datamatrix"
-       HorizontalOptions="Center" />
-      
-        <Button Text="Go GTIN"  Clicked="OnButtonClickedGTIN"      
-                HorizontalOptions="Center"  Margin="0,30" />
-
-        <Button Text="Go NDC"  Clicked="OnButtonClickedNDC"       
-                HorizontalOptions="Center"   Margin="0,30"/>
-
-
+        <ActivityIndicator x:Name="Spinner"    Color="Orange"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="Fill" /> 
+         
+        <Button Text="Click"  
+                x:Name="btnScan"  
+                Clicked="btnScan_Clicked"/>
+        <Entry x:Name="txtBarcode"  
+               Placeholder="Scan"/>
     </StackLayout>
     
   
